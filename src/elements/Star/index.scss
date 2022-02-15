@@ -1,0 +1,23 @@
+@import "../../assets/scss/colorVariables";
+
+.stars {
+  position: relative;
+  min-width: 200px;
+  display: inline-flex;
+
+  .star {
+    position: absolute;
+    display: inline-flex;
+    -webkit-mask: url("../../assets/icons/star-testimonial.svg") no-repeat
+      center left;
+    mask: url(../../assets/icons/star-testimonial.svg) no-repeat center left;
+    &:not(.placeholder) {
+      background-color: $yellow;
+      z-index: 2;
+    }
+    &.placeholder {
+      background-color: $gray-300;
+      z-index: 1;
+    }
+  }
+}

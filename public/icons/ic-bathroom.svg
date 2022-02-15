@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_42" data-name="Rectangle 42" width="40" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="a" clip-path="url(#clip-path)">
+    <g id="Rectangle_40" data-name="Rectangle 40" transform="translate(3 29)" fill="none" stroke="#324bde" stroke-width="2">
+      <rect width="34" height="7" rx="3" stroke="none"/>
+      <rect x="1" y="1" width="32" height="5" rx="2" fill="none"/>
+    </g>
+    <line id="Line_14" data-name="Line 14" y2="3" transform="translate(5 35)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_15" data-name="Line 15" y2="3" transform="translate(35 35)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+    <path id="Path_14" data-name="Path 14" d="M0-5.448V12.3" transform="translate(34.5 6.5)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+    <g id="Rectangle_41" data-name="Rectangle 41" transform="translate(0 18)" fill="none" stroke="#324bde" stroke-width="2">
+      <rect width="40" height="13" rx="3" stroke="none"/>
+      <rect x="1" y="1" width="38" height="11" rx="2" fill="none"/>
+    </g>
+    <line id="Line_16" data-name="Line 16" x1="3.803" y2="4" transform="translate(26.5 1.052)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_17" data-name="Line 17" x1="4" transform="translate(30.5 1.052)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+@import "../../../assets/scss/colorVariables";
+.input-date {
+  .input-group {
+    background-color: $white;
+    box-shadow: 0 10px 20px rgba($blue, 0.3);
+
+    .input-group-text {
+      pointer-events: none;
+      border: 0;
+      cursor: pointer;
+      padding: 0;
+      border-radius: 4px !important;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      background-color: $blue;
+      color: $white;
+      position: absolute;
+      z-index: 4;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      border: 0;
+      border-radius: 0;
+      outline: 0;
+      box-shadow: none;
+      background-color: $white;
+      padding: 0.575rem 7.5rem;
+      text-align: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 60px;
+      font-size: 1.5rem;
+      color: $indigo;
+    }
+
+    .date-range-wrapper {
+      padding: 4px;
+      background-color: $white;
+      box-shadow: 0 10px 20px rgba($blue, 0.3);
+      position: absolute;
+      border-radius: 4px;
+      top: 45px;
+      z-index: 5;
+    }
+  }
+}

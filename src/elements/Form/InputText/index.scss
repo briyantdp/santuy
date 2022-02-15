@@ -1,0 +1,50 @@
+@import "../../../assets/scss/colorVariables";
+
+.input-group {
+  border-radius: 0.8rem;
+  box-shadow: 0 10px 30px rgba($blue, 0.2);
+
+  .form-control {
+    border: 0;
+    border-radius: 0.8rem;
+    color: $indigo;
+    padding: 0.575rem 15px;
+    width: 100%;
+    height: 60px;
+
+    &::-webkit-input-placeholder {
+      color: $gray-300;
+    }
+
+    &::-moz-placeholder {
+      color: $gray-300;
+    }
+
+    &:-ms-input-placeholder {
+      color: $gray-300;
+    }
+
+    &::-ms-input-placeholder {
+      color: $gray-300;
+    }
+
+    &::placeholder {
+      color: $gray-300;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      -webkit-transition: background-color 600000s 0s, color 600000s 0s;
+      transition: background-color 600000s 0s, color 600000s 0s;
+    }
+  }
+}
+
+.error-helper {
+  position: absolute;
+  top: 60px;
+  background-color: $red;
+  color: $white;
+  padding: 0 4px;
+  font-size: 0.7rem;
+}

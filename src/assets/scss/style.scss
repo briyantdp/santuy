@@ -1,0 +1,469 @@
+/*!
+ * Bootstrap v4.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+@import "colorVariables";
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "root";
+@import "reboot";
+@import "type";
+@import "images";
+@import "code";
+@import "container-grid";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+@import "button-group";
+@import "input-group";
+@import "custom-forms";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "jumbotron";
+@import "alert";
+@import "progress";
+@import "media";
+@import "list-group";
+@import "close";
+@import "toasts";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "spinners";
+@import "utilities";
+@import "print";
+
+.brand-text-icon {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+// Navbar
+header {
+  width: 100%;
+
+  .navbar {
+    height: 80px;
+
+    .navbar-nav {
+      li.nav-item {
+        a {
+          &.nav-link {
+            color: $primary;
+            padding-left: 0.9375rem;
+            padding-right: 0.9375rem;
+
+            &:hover {
+              text-decoration: underline;
+              color: $secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Akhir navbar
+
+// Section Hero
+section.hero {
+  background-image: url("../images/image-hero@2x.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  section.hero {
+    height: 350px;
+  }
+}
+
+// Akhir Section Hero
+
+// Section Hero Info
+.hero-info {
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 10px 20px rgba(#5500e1, 0.4);
+}
+
+.hero-info-container {
+  margin-top: -50px;
+}
+
+@media (max-width: 768px) {
+  .hero-info-container {
+    margin-top: 0;
+  }
+
+  .btn-group {
+    width: 320px;
+  }
+}
+// Akhir Section Hero Info
+
+// Section Choose Us
+section.choose-us {
+  .row {
+    .col-lg-8 {
+      .row {
+        .col-md-6 {
+          .card {
+            border: none !important;
+            box-shadow: 0 10px 20px rgba(#5500e1, 0.4);
+            margin: 0.75rem 0;
+
+            &:hover {
+              background-color: $primary;
+              box-shadow: none;
+              transition: 0.3s all ease-out;
+
+              .card-img-container {
+                background-color: $light !important;
+              }
+
+              .card-body {
+                color: $light !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Akhir Section Choose Us
+
+// Section Recommended
+.recommended {
+  .card {
+    height: 100%;
+    border-radius: 8px;
+    .tag {
+      position: absolute;
+      z-index: 3;
+      background-color: $primary;
+      top: 0;
+      right: 0;
+      font-size: 0.875rem;
+      border-radius: 0 8px;
+      padding: 0.25rem 1.25rem;
+      color: $light;
+    }
+
+    figure.img-wrapper {
+      height: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      .img-cover {
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      .img-contain {
+        -o-object-fit: contain;
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .card-body {
+      h4 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    &.card-featured {
+      overflow: hidden;
+      cursor: pointer;
+      height: 100%;
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: scale(1.1);
+        transition: 0.5s transform ease-in-out;
+        z-index: 2;
+        @include gradient-y(rgba($black, 0), rgba($black, 0.8), 0%, 100%);
+      }
+
+      .img-wrapper {
+        z-index: 1;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: scale(1.1);
+        transition: 0.5s transform ease-in-out;
+        border-radius: 8px;
+      }
+
+      .card-body {
+        z-index: 4;
+        color: $white;
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        transform: translateY(0);
+        transition: 0.3s transform ease-in-out;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+      }
+
+      &:hover {
+        .card-body {
+          transform: translateY(-10px);
+        }
+        &:after {
+          transform: scale(1);
+        }
+        .img-wrapper {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .recommended {
+    .row {
+      height: 90rem;
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+  .recommended {
+    .row {
+      height: 46.875rem;
+    }
+  }
+}
+
+// Akhir Section Recommended
+
+// Section Special Offers
+.special {
+  .row {
+    .col-lg-4 {
+      .card {
+        height: 15.625rem;
+        border-radius: 8px;
+        overflow: hidden;
+
+        .tag {
+          position: absolute;
+          z-index: 5;
+          background-color: $primary;
+          top: 0;
+          right: 0;
+          font-size: 0.875rem;
+          border-radius: 0 8px;
+          padding: 0.25rem 1.25rem;
+          color: $light;
+        }
+
+        figure.img-wrapper {
+          height: 100%;
+          border-radius: 8px;
+          .img-cover {
+            -o-object-fit: cover;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
+          .img-contain {
+            -o-object-fit: contain;
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        .card-body {
+          h4 {
+            font-size: 1.5rem;
+          }
+          p {
+            font-size: 1rem;
+          }
+        }
+
+        &.card-featured {
+          height: 15.625rem;
+          cursor: pointer;
+
+          &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 2;
+            border-radius: 8px;
+            @include gradient-y(rgba($black, 0), rgba($black, 0.8), 0%, 100%);
+          }
+
+          .img-wrapper {
+            z-index: 1;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            transform: scale(1.1);
+            transition: 0.5s transform ease-in-out;
+            border-radius: 8px;
+            overflow: hidden;
+          }
+
+          .card-body {
+            z-index: 4;
+            color: $white;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            transform: translateY(0);
+            transition: 0.3s transform ease-in-out;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+          }
+
+          &:hover {
+            .card-body {
+              transform: translateY(-10px);
+            }
+            &:after {
+              transform: scale(1);
+            }
+            .img-wrapper {
+              transform: scale(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Akhir Section Special Offers
+
+// Section Testimonial
+.testimonial {
+  .row {
+    .img-wrapper {
+      height: 500px;
+      border-radius: 0 20px;
+      overflow: hidden;
+
+      .img-cover {
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Akhir Section Testimonial
+
+// Section Detail Image
+.detail-img {
+  .card {
+    height: 100%;
+    border-radius: 8px;
+
+    figure.img-wrapper {
+      height: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+
+      .img-cover {
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      .img-contain {
+        -o-object-fit: contain;
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .detail-img {
+    .row {
+      .card {
+        max-height: 30rem;
+      }
+    }
+  }
+}
+
+// Akhir Section Detail Image
+
+// Booking Information
+.booking-information {
+  .card {
+    height: 500px;
+    border-radius: 8px;
+    border: none;
+    figure.img-wrapper {
+      height: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      .img-cover {
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      .img-contain {
+        -o-object-fit: contain;
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+// Akhir Booking Infromation

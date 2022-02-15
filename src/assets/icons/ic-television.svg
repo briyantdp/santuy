@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_55" data-name="Rectangle 55" width="40" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="a" clip-path="url(#clip-path)">
+    <g id="Group_32" data-name="Group 32" transform="translate(0 -1)">
+      <g id="Rectangle_54" data-name="Rectangle 54" transform="translate(0 6)" fill="none" stroke="#334bde" stroke-width="2">
+        <rect width="40" height="25" rx="4" stroke="none"/>
+        <rect x="1" y="1" width="38" height="23" rx="3" fill="none"/>
+      </g>
+      <line id="Line_24" data-name="Line 24" y2="6" transform="translate(10 31)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+      <line id="Line_25" data-name="Line 25" y2="6" transform="translate(30 31)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+      <line id="Line_26" data-name="Line 26" x1="24" transform="translate(8 37)" fill="none" stroke="#334bde" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="Group_33" data-name="Group 33" transform="translate(27.15 10) rotate(90)">
+      <path id="Path_23" data-name="Path 23" d="M5.876,1.573a1,1,0,0,1,1.748,0l5.05,9.091A1,1,0,0,1,11.8,12.15H1.7a1,1,0,0,1-.874-1.486Z" fill="none"/>
+      <path id="Path_24" data-name="Path 24" d="M6.75,4.118,3.4,10.15h6.7L6.75,4.118m0-3.059a.99.99,0,0,1,.874.514l5.05,9.091A1,1,0,0,1,11.8,12.15H1.7a1,1,0,0,1-.874-1.486l5.05-9.091A.99.99,0,0,1,6.75,1.059Z" fill="#334bde"/>
+    </g>
+  </g>
+</svg>
