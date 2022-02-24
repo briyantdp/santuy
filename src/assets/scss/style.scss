@@ -79,14 +79,16 @@ header {
 
 // Section Hero
 section.hero {
-  background-image: url("../images/image-hero@2x.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  // height: 450px;
+  background-image: none;
   border-radius: 8px;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   section.hero {
+    background-image: url("../images/image-hero@2x.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 350px;
   }
 }
