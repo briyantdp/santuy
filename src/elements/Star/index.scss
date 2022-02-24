@@ -10,7 +10,7 @@
     display: inline-flex;
     -webkit-mask: url("../../assets/icons/star-testimonial.svg") no-repeat
       center left;
-    mask: url(../../assets/icons/star-testimonial.svg) no-repeat center left;
+    mask: url("../../assets/icons/star-testimonial.svg") no-repeat center left;
     &:not(.placeholder) {
       background-color: $yellow;
       z-index: 2;
