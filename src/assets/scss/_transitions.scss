@@ -12,6 +12,14 @@
   }
 }
 
+.collapse {
+  &.show {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+  }
+}
+
 .collapsing {
   position: relative;
   height: 0;
