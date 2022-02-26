@@ -11,7 +11,7 @@ export default function Testimonial(props) {
     <Fade bottom>
       <section className="container testimonial p-4 mt-5">
         <div className="row align-items-center">
-          <div className="col-lg-5 col-md-6 col-9 mx-auto mx-md-0">
+          <div className="col-lg-5 col-md-6 mx-auto mx-md-0">
             <div className="img-wrapper">
               <img
                 src={`${process.env.REACT_APP_HOST}/${props.data.imageUrl}`}
