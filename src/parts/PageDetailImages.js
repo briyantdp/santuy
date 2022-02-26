@@ -32,11 +32,13 @@ export default function PageDetailImages(props) {
               key={`detailImages-${index}`}
               className={`item d-block d-md-none my-2`}
             >
-              <div className="card">
-                <figure className="img-wrapper m-0">
-                  <img src={item.url} alt={item._id} className="img-cover" />
-                </figure>
-              </div>
+              <Fade bottom delay={300 * index}>
+                <div className="card">
+                  <figure className="img-wrapper m-0">
+                    <img src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`} alt={item._id} className="img-cover" />
+                  </figure>
+                </div>
+            </Fade>
             </div>
           );
         })}
