@@ -6,7 +6,6 @@ import Button from "../elements/Button";
 import IconText from "./IconText";
 import "../assets/scss/style.scss";
 
-
 export default function Header(props) {
   const getNavLinkClass = (path) => {
     return window.location.pathname === path ? "active" : "";
@@ -14,8 +13,6 @@ export default function Header(props) {
 
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
-
-
 
   if (props.isCentered) {
     return (
