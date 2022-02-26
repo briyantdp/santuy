@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Fade from "react-reveal";
+import { connect } from "react-redux";
+
 
 import Header from "parts/Header";
 import Button from "elements/Button";
@@ -13,9 +16,8 @@ import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 
-import itemDetails from "../json/itemDetails.json";
-
-export default class Checkout extends Component {
+import { submitBooking } from "stores/actions/checkout";
+class Checkout extends Component {
   state = {
     data: {
       firstName: "",
@@ -42,11 +44,33 @@ export default class Checkout extends Component {
     document.title = "Staycation | Checkout";
   }
 
+  _Submit = (nextStep) => {
+    const { data } = this.state;
+    const { checkout } = this.props;
+
+    const payload =  new FormData();
+    payload.append("bookingStartDate", checkout.date.startDate);
+    payload.append("bookingEndDate", checkout.date.endDate);
+    payload.append("itemId", checkout._id);
+    payload.append("duration", checkout.duration);
+    payload.append("firstName", data.firstName);
+    payload.append("lastName", data.lastName);
+    payload.append("email", data.email);
+    payload.append("phone", data.phone);
+    payload.append("bankFrom", data.bankName);
+    payload.append("accountHolder", data.bankHolder);
+    payload.append("image", data.proofPayment[0]);
+    
+    this.props.submitBooking(payload)
+      .then(() =>  {
+        nextStep();
+      })
+  }
+
   render() {
     const { data } = this.state;
-    const checkout = {
-      duration: 3,
-    };
+    const { checkout, page } = this.props
+
     if (!checkout)
       return (
         <div className="container">
@@ -54,11 +78,11 @@ export default class Checkout extends Component {
             className="row align-items-center justify-content-center text-center"
             style={{ height: "100vh" }}
           >
-            <div className="col-3">
-              Pilih kamar dulu
+            <div className="col-6">
+              <h1 className="h3 font-weight-bold text-secondary">Choose Your Item</h1>
               <div>
                 <Button
-                  className="btn mt-5"
+                  className="btn mt-2 px-5"
                   type="button"
                   onClick={() => this.props.history.goBack()}
                   isLight
@@ -78,7 +102,7 @@ export default class Checkout extends Component {
           <BookingInformation
             data={data}
             checkout={checkout}
-            itemDetails={itemDetails}
+            itemDetails={page[checkout._id]}
             onChange={this.onChange}
           />
         ),
@@ -89,7 +113,7 @@ export default class Checkout extends Component {
         content: (
           <Payment
             data={data}
-            itemDetails={itemDetails}
+            itemDetails={page[checkout._id]}
             checkout={checkout}
             onChange={this.onChange}
           />
@@ -124,16 +148,18 @@ export default class Checkout extends Component {
                     data.lastName !== "" &&
                     data.email !== "" &&
                     data.phone !== "" && (
-                      <Button
-                        className="btn mb-3 text-white"
-                        type="button"
-                        isBlock
-                        isPrimary
-                        hasShadow
-                        onClick={nextStep}
-                      >
-                        Continue to Book
-                      </Button>
+                      <Fade>
+                        <Button
+                          className="btn mb-3 text-white"
+                          type="button"
+                          isBlock
+                          isPrimary
+                          hasShadow
+                          onClick={nextStep}
+                        >
+                          Continue to Book
+                        </Button>
+                      </Fade>
                     )}
                   <Button
                     className="btn"
@@ -152,16 +178,18 @@ export default class Checkout extends Component {
                   {data.proofPayment !== "" &&
                     data.bankName !== "" &&
                     data.bankHolder !== "" && (
-                      <Button
-                        className="btn mb-3 text-white"
-                        type="button"
-                        isBlock
-                        isPrimary
-                        hasShadow
-                        onClick={nextStep}
-                      >
-                        Continue to Book
-                      </Button>
+                      <Fade>
+                        <Button
+                          className="btn mb-3 text-white"
+                          type="button"
+                          isBlock
+                          isPrimary
+                          hasShadow
+                          onClick={() => this._Submit(nextStep)}
+                        >
+                          Continue to Book
+                        </Button>
+                      </Fade>
                     )}
                   <Button
                     className="btn"
@@ -189,3 +217,10 @@ export default class Checkout extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout : state.checkout,
+  page : state.page
+})
+
+export default connect(mapStateToProps, {submitBooking})(Checkout);
