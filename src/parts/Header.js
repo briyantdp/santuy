@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import propTypes from "prop-types";
 
 import Button from "../elements/Button";
@@ -12,19 +13,21 @@ export default function Header(props) {
 
   if (props.isCentered) {
     return (
-      <header className="spacing-sm">
-        <div className="container">
-          <div className="navbar navbar-expand-lg navbar-light">
-            <Button
-              className="brand-text-icon font-weight-bold text-primary mx-auto"
-              href=""
-              type="link"
-            >
-              Santuy
-            </Button>
+      <Fade>
+        <header className="spacing-sm">
+          <div className="container">
+            <div className="navbar navbar-expand-lg navbar-light">
+              <Button
+                className="brand-text-icon font-weight-bold text-primary mx-auto"
+                href=""
+                type="link"
+              >
+                Santuy
+              </Button>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      </Fade>
     );
   }
 

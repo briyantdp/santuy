@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 
 export default function PageDetailImages(props) {
   return (
@@ -12,11 +13,13 @@ export default function PageDetailImages(props) {
                 index > 0 ? "row-1" : "row-2"
               } d-none d-md-block`}
             >
-              <div className="card">
-                <figure className="img-wrapper m-0">
-                  <img src={item.url} alt={item._id} className="img-cover" />
-                </figure>
-              </div>
+              <Fade bottom delay={300*index}>
+                <div className="card">
+                  <figure className="img-wrapper m-0">
+                    <img src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`} alt={item._id} className="img-cover" />
+                  </figure>
+                </div>
+              </Fade>
             </div>
           );
         })}
