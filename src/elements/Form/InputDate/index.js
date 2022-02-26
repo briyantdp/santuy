@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import propTypes from "prop-types";
 
 import { DateRange } from "react-date-range";
 
 import "./index.scss";
-import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
 import formatDate from "utils/formatDate";
-import IconCalendar from "assets/icons/icon-calendar.svg";
+import iconCalendar from "assets/icons/icon-calendar.svg";
 
-export default function InputDate(props) {
+export default function Date(props) {
   const { value, placeholder, name } = props;
   const [isShowed, setIsShowed] = useState(false);
 
@@ -46,6 +46,7 @@ export default function InputDate(props) {
   const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${
     value.endDate ? " - " + formatDate(value.endDate) : ""
   }`;
+
   return (
     <div
       ref={refDate}
@@ -54,7 +55,7 @@ export default function InputDate(props) {
       <div className="input-group">
         <div className="input-group-prepend bg-gray-900">
           <span className="input-group-text">
-            <img src={IconCalendar} alt="icon calendar" />
+            <img src={iconCalendar} alt="icon calendar" />
           </span>
         </div>
         <input
@@ -82,9 +83,9 @@ export default function InputDate(props) {
   );
 }
 
-InputDate.propTypes = {
+Date.propTypes = {
   value: propTypes.object,
-  placeholder: propTypes.string,
   onChange: propTypes.func,
+  placeholder: propTypes.string,
   outerClassName: propTypes.string,
 };
