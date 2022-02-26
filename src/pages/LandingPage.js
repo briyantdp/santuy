@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // Parts
 import Header from "../parts/Header";
@@ -10,8 +11,8 @@ import SpecialOffers from "../parts/SpecialOffers";
 import Testimonial from "../parts/Testimonial";
 import Footer from "../parts/Footer";
 
-// Data JSON
-import dataLandingPage from "../json/landingPage.json";
+import { fetchPage } from "stores/actions/page";
+
 
 class LandingPage extends Component {
   constructor(props) {
@@ -22,25 +23,35 @@ class LandingPage extends Component {
   componentDidMount() {
     document.title = "Santuy | Home";
     window.scroll(0, 0);
+
+    if(!this.props.page.landingPage);
+    this.props.fetchPage(`/landing-page`, "landingPage")
   }
 
   render() {
+    const { page } = this.props;
+
+    if (!page.hasOwnProperty("landingPage")) return null;
     return (
       <>
         <Header />
         <Hero refRecommended={this.refRecommended} />
-        <HeroInfo data={dataLandingPage.hero} />
+        <HeroInfo data={page.landingPage.hero} />
         <ChooseUs />
         <Recommended
           refRecommended={this.refRecommended}
-          data={dataLandingPage.recommended}
+          data={page.landingPage.recommended}
         />
-        <SpecialOffers data={dataLandingPage.special} />
-        <Testimonial data={dataLandingPage.testimonial} />
+        <SpecialOffers data={page.landingPage.specialOffers} />
+        <Testimonial data={page.landingPage.testimonial} />
         <Footer />
       </>
     );
   }
 }
 
-export default LandingPage;
+const mapStateToProps = (state) => ({
+  page : state.page
+})
+
+export default connect(mapStateToProps, {fetchPage})(LandingPage);
