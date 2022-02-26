@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Fade from "react-reveal/Fade";
 import propTypes from "prop-types";
 
@@ -6,10 +6,16 @@ import Button from "../elements/Button";
 import IconText from "./IconText";
 import "../assets/scss/style.scss";
 
+
 export default function Header(props) {
   const getNavLinkClass = (path) => {
     return window.location.pathname === path ? "active" : "";
   };
+
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
+
 
   if (props.isCentered) {
     return (
@@ -40,14 +46,15 @@ export default function Header(props) {
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
+            data-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded={!isNavCollapsed ? true : false} 
             aria-label="Toggle navigation"
+            onClick={handleNavCollapse}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className={`${isNavCollapsed ? 'collapse' : 'collapse show'} navbar-collapse`} id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Button
