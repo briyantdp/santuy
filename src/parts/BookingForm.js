@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
 import { InputDate, InputNumber } from "elements/Form";
 import Button from "elements/Button";
@@ -31,7 +32,6 @@ class BookingForm extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { data } = this.state;
-
     if (prevState.data.date !== data.date) {
       const startDate = new Date(data.date.startDate);
       const endDate = new Date(data.date.endDate);
@@ -43,29 +43,29 @@ class BookingForm extends Component {
         },
       });
 
-      if (prevState.data.duration !== data.duration) {
-        const startDate = new Date(data.date.startDate);
-        const endDate = new Date(
-          startDate.setDate(startDate.getDate() + +data.duration - 1)
-        );
-        this.setState({
-          ...this.state,
-          data: {
-            ...this.state.data,
-            date: {
-              ...this.state.data.date,
-              endDate: endDate,
-            },
+    }
+    if (prevState.data.duration !== data.duration) {
+      const startDate = new Date(data.date.startDate);
+      const endDate = new Date(
+        startDate.setDate(startDate.getDate() + +data.duration - 1)
+      );
+      this.setState({
+        ...this.state,
+        data: {
+          ...this.state.data,
+          date: {
+            ...this.state.data.date,
+            endDate: endDate,
           },
-        });
-      }
+        },
+      });
     }
   }
 
   startBooking = () => {
     const { data } = this.state;
     this.props.startBooking({
-      _id: this.props.itemDetails._id,
+      _id: this.props.dataBooking._id,
       duration: data.duration,
       date: {
         startDate: data.date.startDate,
@@ -77,7 +77,7 @@ class BookingForm extends Component {
 
   render() {
     const { data } = this.state;
-    const { itemDetails } = this.props;
+    const { dataBooking } = this.props;
 
     return (
       <section className="text-secondary">
@@ -85,7 +85,7 @@ class BookingForm extends Component {
         <h3 className="h3 font-weight-normal">
           Start from{" "}
           <span className="font-weight-bold">
-            {`$${itemDetails.price} per ${itemDetails.unit}`}{" "}
+            {`$${dataBooking.price} per-night`}{" "}
           </span>
         </h3>
 
@@ -116,11 +116,11 @@ class BookingForm extends Component {
         >
           You will pay{" "}
           <span className="font-weight-bold">
-            {`$${itemDetails.price * data.duration} USD`}
+            {`$${dataBooking.price * data.duration} USD`}
           </span>{" "}
           per{" "}
           <span className="font-weight-bold">
-            {data.duration} {itemDetails.unit}
+            {data.duration} {data.duration > 1 ? 'nights' : 'night'}
           </span>
         </h6>
 
@@ -140,8 +140,8 @@ class BookingForm extends Component {
 }
 
 BookingForm.propTypes = {
-  itemDetails: propTypes.object,
+  dataBooking: propTypes.object,
   startBooking: propTypes.func,
 };
 
-export default BookingForm;
+export default withRouter(BookingForm);
